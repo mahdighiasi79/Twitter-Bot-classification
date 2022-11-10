@@ -1,8 +1,10 @@
 import numpy as np
+import json
 
 
 def fetch_data():
-    data = np.zeros((1000, 8))
+    f = open("twibot20.json")
+    data = json.load(f)
     return data
 
 
@@ -80,4 +82,14 @@ def dbscan(data, eps, k):
 
 
 if __name__ == '__main__':
-    dbscan(fetch_data(), 10, 10)
+    data = fetch_data()
+    for key in data[0]["tweet"]:
+        print(key)
+    # print(element["profile"]["followers_count"])
+    # print(element["profile"]["friends_count"])
+    # print(element["profile"]["favourites_count"])
+    # print(element["profile"]["listed_count"])
+    # print(element["tweet"]["retweet_count"])
+    # # print(profile["reply_count"])
+    # print(element["tweet"]["hashtag_count"])
+    # print(element["tweet"]["mentions_count"])
